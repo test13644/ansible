@@ -1,0 +1,10 @@
+- name: Copying nginx config
+  template:
+    src: zabbix.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+    mode: 0644
+
+- name: Restart service nginx
+  service:
+    name: zabbix-agent
+    state: restarted
